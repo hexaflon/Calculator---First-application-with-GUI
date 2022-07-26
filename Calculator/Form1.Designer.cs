@@ -180,7 +180,7 @@
             this.OutBox.Location = new System.Drawing.Point(4, 34);
             this.OutBox.Name = "OutBox";
             this.OutBox.Size = new System.Drawing.Size(253, 20);
-            this.OutBox.TabIndex = 13;
+            this.OutBox.TabIndex = 21;
             this.OutBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button1
@@ -255,9 +255,9 @@
             // 
             // equasion
             // 
-            this.equasion.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.equasion.BackColor = System.Drawing.SystemColors.Control;
             this.equasion.Enabled = false;
-            this.equasion.ForeColor = System.Drawing.SystemColors.Window;
+            this.equasion.ForeColor = System.Drawing.SystemColors.InfoText;
             this.equasion.Location = new System.Drawing.Point(4, 5);
             this.equasion.Name = "equasion";
             this.equasion.Size = new System.Drawing.Size(253, 23);
@@ -291,8 +291,7 @@
             this.Controls.Add(this.equals);
             this.Controls.Add(this.plus);
             this.MaximizeBox = false;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Calculator";
             this.ResumeLayout(false);
             this.PerformLayout();
 
