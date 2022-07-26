@@ -47,6 +47,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.equasion = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // plus
@@ -161,7 +163,7 @@
             // 
             // B0
             // 
-            this.B0.Location = new System.Drawing.Point(73, 335);
+            this.B0.Location = new System.Drawing.Point(4, 335);
             this.B0.Name = "B0";
             this.B0.Size = new System.Drawing.Size(46, 50);
             this.B0.TabIndex = 11;
@@ -171,15 +173,19 @@
             // 
             // OutBox
             // 
+            this.OutBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.OutBox.Enabled = false;
             this.OutBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OutBox.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.OutBox.Location = new System.Drawing.Point(4, 34);
             this.OutBox.Name = "OutBox";
             this.OutBox.Size = new System.Drawing.Size(253, 20);
             this.OutBox.TabIndex = 13;
+            this.OutBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(145, 335);
+            this.button1.Location = new System.Drawing.Point(73, 335);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(46, 50);
             this.button1.TabIndex = 14;
@@ -237,11 +243,34 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.b_Click);
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(145, 335);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(46, 50);
+            this.button7.TabIndex = 20;
+            this.button7.Text = "/";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.b_Click);
+            // 
+            // equasion
+            // 
+            this.equasion.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.equasion.Enabled = false;
+            this.equasion.ForeColor = System.Drawing.SystemColors.Window;
+            this.equasion.Location = new System.Drawing.Point(4, 5);
+            this.equasion.Name = "equasion";
+            this.equasion.Size = new System.Drawing.Size(253, 23);
+            this.equasion.TabIndex = 21;
+            this.equasion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(263, 391);
+            this.Controls.Add(this.equasion);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -290,5 +319,7 @@
         private Button button4;
         private Button button5;
         private Button button6;
+        private Button button7;
+        private TextBox equasion;
     }
 }

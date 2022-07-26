@@ -30,23 +30,23 @@ namespace Calculator
                         break;
                     }
                 case "-": {
-                        basic_checker();
+                        if (basic_checker()) return;
                         operation_type = "-";
-                        math_was_done();
+                        //math_was_done();
                         done_operation = true;
                         break;
                     }
                 case "*": {
-                        basic_checker();
+                        if (basic_checker()) return;
                         operation_type = "*";
-                        math_was_done();
+                        //math_was_done();
                         done_operation = true;
                         break;
                     }
                 case "/": {
-                        basic_checker();
+                        if (basic_checker()) return;
                         operation_type = "/";
-                        math_was_done();
+                        //math_was_done();
                         done_operation = true;
                         break;
                     }
@@ -122,22 +122,34 @@ namespace Calculator
                     }
                 case ".":
                     {
-                        OutBox.Text = choice;
+                        if (number[index].Contains(",")) return;
+                        if (number[index] == "") number[index] = "0,";
+                        else number[index] += ",";
+                        OutBox.Text = number[index];
                         break;
                     }
                 case "C":
                     {
-                        OutBox.Text = choice;
+                        OutBox.Text = "0";
+                        reset_calculator();
                         break;
                     }
                 case "CE":
                     {
-                        OutBox.Text = choice;
+                        //OutBox.Text = choice;
+                        number[index] = "0";
+                        OutBox.Text = number[index];
                         break;
                     }
                 case "DEL":
                     {
-                        OutBox.Text = choice;
+                        //OutBox.Text = choice;
+                        if (number[index].Length != 0)
+                        {
+                            number[index] = number[index].Substring(0, number[index].Length - 1);
+                            OutBox.Text = number[index];
+                        }
+                        if (number[index] == "") number[index] = "0";
                         break;
                     }
                 default:
@@ -165,12 +177,12 @@ namespace Calculator
             if (!string_is_only_0(text))
             {
                 number[index] += text;
-                OutBox.AppendText(text);
+                OutBox.Text = number[index];
                 return;
             }
             //If 
             number[index] = text;
-            OutBox.AppendText(text);
+            OutBox.Text = number[index];
 
         }
 
@@ -242,19 +254,28 @@ namespace Calculator
                         break;
                     }
                 case "-": {
-                        OutBox.AppendText("-");
+                        //OutBox.AppendText("-");
                         result = Convert.ToDouble(number[0]) - Convert.ToDouble(number[1]);
+
                         break;
                     }
                 case "*": {
-                        OutBox.AppendText("*");
+                        //OutBox.AppendText("*");
                         result = Convert.ToDouble(number[0]) * Convert.ToDouble(number[1]);
                         break;
                     }
                 case "/":
                     {
-                        OutBox.AppendText("/");
-                        result = Convert.ToDouble(number[0]) / Convert.ToDouble(number[1]);
+                        //OutBox.AppendText("/");
+                        try
+                        {
+                            result = Convert.ToDouble(number[0]) / Convert.ToDouble(number[1]);
+                        }
+                        catch (DivideByZeroException)
+                        {
+                            OutBox.Text = "You can't divide by zero";
+                            reset_calculator();
+                        }
                         break;
                     }
                 default:
@@ -263,8 +284,10 @@ namespace Calculator
                         break;
                     }
             }
+
+            
+
         }
 
-        
     }
 }
